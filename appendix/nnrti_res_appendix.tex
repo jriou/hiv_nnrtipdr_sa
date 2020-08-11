@@ -1,0 +1,591 @@
+\documentclass{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}
+\usepackage{tikz}
+\usepackage{dsfont}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{todonotes}
+\usepackage{float}
+\usepackage{rotating}
+\usepackage[toc,page]{appendix} %appendix
+\usepackage{authblk}
+\usepackage{enumitem}
+%\setlist{nolistsep}
+\usepackage{siunitx}
+\usepackage{fancyvrb}
+
+\definecolor{maroon}{RGB}{176, 48, 96}
+\definecolor{orange2}{RGB}{238, 118, 0}
+\newcommand{\colindic}[1]{\textcolor{maroon}{#1}}
+\newcommand{\colsurvey}[1]{\textcolor{orange2}{#1}}
+
+
+\title{{\sc Supplementary appendix to:} \\[.5em] Dynamics and drivers of HIV-1 drug resistance to non-nucleoside reverse-transcriptase inhibitors in southern Africa }
+
+
+\author{Julien Riou, Carole Dupont, Silvia Bertagnolio, Ravindra K.~Gupta, Leigh F.~Johnson, Roger D.~Kouyos, Matthias Egger, Christian L.~Althaus}
+%\affil[a]{{\small University of Bern, Bern, Switzerland}}
+%\affil[b] {{\small World Health Organization, Geneva, Switzerland}}
+%\affil[c] {{\small University College London, London, UK}}
+%\affil[d] {{\small Africa Health Research Institute, Durban, South Africa}}
+%\affil[e] {{\small University of Cape Town, South Africa}}
+%\affil[f] {{\small University Hospital Zurich, University of Zurich, Zurich, Switzerland}}
+%\affil[g] {{\small University of Zurich, Zurich, Switzerland}}
+%\affil[*] {{\small Corresponding  author (\texttt{julien.riou@ispm.unibe.ch})}}
+
+\date{}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\clearpage
+	
+	\section{Data}
+	\subsection{Systematic review of NNRTI PDR}
+	
+	
+	
+	
+	\subsubsection{Initial systematic review}
+	
+	Survey data on PDR in adults was obtained from a systematic review conducted by \cite{gupta2018hiv}.
+	The authors searched for studies in PubMed, Embase and for conference abstracts published between Jan 1, 2001 and Dec 31, 2016, and complemented the systematic review with additional unpublished datasets from WHO-supported surveys of drug resistance. From the items included in the original systematic review, we selected 56 surveys of NNRTI PDR conducted in one of our 9 countries of interest: Botswana, Lesotho, Malawi, Mozambique, Namibia, South Africa, Eswatini, Zambia and Zimbabwe. 
+	
+	
+	\subsubsection{Update to the systematic review}
+	
+	\paragraph{Search strategy.}
+	The original search strategy not available in the online appendix of the journal article \cite{gupta2018hiv}. Therefore, we reproduced the search according to the Methods section (Methods > Search strategy and selection criteria) of the published article, without any language restrictions. We reproduced the search in “All fields” allowing a mapping to thesaurus terms (Mesh and Emtree). We limited time range to the interval January 1, 2017 to July 31, 2019 for PubMed and to August 9, 2019 for Embase.
+	We concentrated on 9 countries of interest.
+	
+	\begin{table}[h]
+		\caption{Pubmed search strategy use for the update to the systematic review.}
+		\label{tab:pubmed}
+		\centering
+		\begin{tabular}{lp{12cm}l}
+			\hline
+			Search    & Query           & Items found \\
+			\hline
+			\#1       & Search (antiretroviral therapy) AND transmitted drug resistance    & 686  \\
+			\#2       & Search (antiretroviral therapy) AND pretreatment drug resistance    & 202  \\
+			\#3       & Search (antiretroviral therapy) AND (stavudine OR zidovudine OR nevirapine OR efavirenz) & 14579 \\
+			\#4       & Search (HIV) AND transmitted drug resistance      & 1204 \\
+			\#5       & Search (HIV) AND pretreatment drug resistance      & 182  \\
+			\#6       & Search (HIV) AND antenatal        & 2924 \\
+			\#7       & Search (HIV) AND VCT         & 775  \\
+			\#8       & Search ((genotyp*) AND HIV) AND naive       & 1720 \\
+			\#9       & Search ((genotyp*) AND HIV) AND resistance      & 5041 \\
+			\#10       & Search (((genotyp*) AND HIV) AND resistance) AND primary     & 673  \\
+			\#11       & Search (\#1 OR \#2 OR \#3 OR \#4 OR \#5 OR \#6 OR \#7 OR \#8 OR \#9 OR \#10)  & 23450 \\
+			\#12       & Search (Botswana OR Botswan*)        & 3292 \\
+			\#13       & Search (Lesotho OR Lesoth*)        & 765  \\
+			\#14       & Search (Malawi OR Malawi*)        & 8946 \\
+			\#15       & Search (Mozambique OR Mozambi*)        & 4320 \\
+			\#16       & Search (Namibia OR Namibia*)        & 2110 \\
+			\#17       & Search (South-Africa OR South-Africa*)       & 127230 \\
+			\#18       & Search (Eswatini OR Eswatin* OR Swaziland OR Swazi*)     & 1049 \\
+			\#19       & Search (Zambia OR Zambia*)        & 7343 \\
+			\#20       & Search (Zimbabwe OR Zimbabw*)        & 9138 \\
+			\#21       & Search (\#12 OR \#13 OR \#14 OR \#15 OR \#16 OR \#17 OR \#18 OR \#19 OR \#20)  & 154277 \\
+			\#22       & Search (\#11 AND \#21)         & 2635 \\
+			\#23       & Search (\#11 AND \#21)         & 525  \\		\hline
+			\multicolumn{3}{l}{Filters: Publication date from 2017/01/01 to 2019/07/31}
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[h]
+		\caption{Embase search strategy use for the update to the systematic review.}
+		\label{tab:embase}
+		\centering
+		\begin{tabular}{lp{12cm}l}
+			\hline
+			Search & Query        & Items found \\
+			\hline
+			\#1 & ('antiretroviral therapy'/exp OR 'antiretroviral therapy') AND ('transmitted drug resistance'/exp OR 'transmitted drug resistance')    & 325  \\
+			\#2 & ('antiretroviral therapy'/exp OR 'antiretroviral therapy') AND 'pretreatment drug resistance'     & 27  \\
+			\#3 & ('antiretroviral therapy'/exp OR 'antiretroviral therapy') AND ('stavudine'/exp OR stavudine OR 'zidovudine'/exp OR zidovudine OR 'nevirapine'/exp OR nevirapine OR 'efavirenz'/exp OR efavirenz) & 19527 \\
+			\#4 & ('hiv'/exp OR 'hiv') AND ('transmitted drug resistance'/exp OR 'transmitted drug resistance')     & 688  \\
+			\#5 & ('hiv'/exp OR 'hiv') AND 'pretreatment drug resistance'      & 43  \\
+			\#6 & ('hiv'/exp OR 'hiv') AND 'antenatal'        & 3803 \\
+			\#7 & ('hiv'/exp OR 'hiv') AND ('vct'/exp OR 'vct')       & 986  \\
+			\#8 & 'genotyp*' AND ('hiv'/exp OR 'hiv') AND 'naive'       & 2781 \\
+			\#9 & 'genotyp*' AND ('hiv'/exp OR 'hiv') AND ('resistance'/exp OR 'resistance')     & 7223 \\
+			\#10 & 'genotyp*' AND ('hiv'/exp OR 'hiv') AND ('resistance'/exp OR 'resistance') AND 'primary'      & 1000 \\
+			\#11 & \#1 OR \#2 OR \#3 OR \#4 OR \#5 OR \#6 OR \#7 OR \#8 OR \#9 OR \#10      & 31057 \\
+			\#12 & 'botswana'/exp OR botswana OR botswan*        & 4321 \\
+			\#13 & 'lesotho'/exp OR lesotho OR lesoth*        & 1002 \\
+			\#14 & 'malawi'/exp OR malawi OR malawi*       & 11113 \\
+			\#15 & 'mozambique'/exp OR mozambique OR mozambi*       & 5633 \\
+			\#16 & 'namibia'/exp OR namibia OR namibia*        & 2688 \\
+			\#17 & 'south africa'/exp OR 'south africa' OR 'south africa*'      & 194504 \\
+			\#18 & eswatini OR eswatin* OR 'swaziland'/exp OR swaziland OR swazi*       & 1846 \\
+			\#19 & 'zambia'/exp OR zambia OR zambia*       & 9661 \\
+			\#20 & 'zimbabwe'/exp OR zimbabwe OR zimbabw*        & 13144 \\
+			\#21 & \#12 OR \#13 OR \#14 OR \#15 OR \#16 OR \#17 OR \#18 OR \#19 OR \#20      & 230881 \\
+			\#22 & \#11 AND \#21         & 4199 \\
+			\#23 & \#22 AND (2017:py OR 2018:py OR 2019:py)        & 913 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\paragraph{Identified research items.} The search resulted in the identification of 525 items in Pubmed and 913 items in Embase (tables \ref{tab:pubmed} and \ref{tab:embase}). After deduplication this led to 1,039 items to screen.
+	%
+	%
+	%\begin{table}[h]
+	%	\centering
+	%	\caption{Results of the search strategy.}
+	%	\label{tab:dedup}
+	%	\begin{tabular}{lll}
+	%		\hline
+	%		& Before deduplication & After deduplication  \\ 
+	%		\hline 
+	%		Pubmed & 525  &  525 \\
+	%		Embase & 913 & 514 \\
+	%		Total & 1,438 & 1,039 \\ 
+	%		\hline 
+	%	\end{tabular} 
+	%	
+	%\end{table}
+	
+	
+	\paragraph{Screening and inclusion.} These 1,039 items were independently screened with title and abstract by two reviewers, CD and JR.
+	The objective was to identify relevant studies according to our inclusion criteria: studies reporting original results on NNRTI PDR in adults in one of the included countries. This step led to the identification of 32 items that were then read by the two reviewers to confirm the inclusion criteria. This second step led to the inclusion of 8 additional studies. 
+	
+	\paragraph{Data extraction.}
+	Extracted variables included, for each study $i$, the number of ART initiators with NNRTI resistance mutations $\mathds{E}_i$, the sample size $\mathds{N}_i$ and the median year of sampling $\mathds{T}_i$.
+	
+	\subsubsection{Included papers}
+	In total, we included 64 surveys of NNRTI PDR in adults conducted in 9 countries between 2000 and 2018, for a total of 14,567 individuals.
+	All data used in the analysis is available to download from \url{https://github.com/jriou/nnrtipdr_sa}.
+	
+	\subsection{Data on four key indicators}
+	
+	For each of the nine countries, we obtained yearly estimates from UNAIDS regarding the number of adults living with HIV ($\mathds{A}_t$), the number of adults living with HIV on ART ($\mathds{B}_t$), and the number of AIDS-related deaths among adults ($\mathds{C}_t$) for each year $t \in \{2000,\ldots,2018\}$ \cite{unaidsdata2018}.
+	This data constitute model-based estimates (using Spectrum or Thembisa \cite{stover2012updates,johnson2014thembisa}) and not direct measurements.
+	Data on the size of the adult population (>15) of each country ($\mathds{D}_t$) was obtained from the World Bank website \cite{worldbank}.
+	Data for the year 1999 ($\mathds{A}_0$ and $\mathds{D}_0$) was also extracted to inform on initial conditions.
+	
+	\begin{figure}[h]
+		
+		\begin{tikzpicture}
+		\node[rectangle, draw, rounded corners, inner sep=0pt, text width=2.8cm,minimum height=1cm,text centered] (pubmed) at (0,0) {Pubmed \hspace{1cm} $n=525$};
+		\node[rectangle, draw, rounded corners, inner sep=0pt, text width=2.8cm,minimum height=1cm,text centered] (embase) at (5,0) {Embase \hspace{1cm} $n=913$};
+		
+		\node[anchor=west] (t1) at (-6,-1.25) {\textit{Deduplication}};
+		\node[rectangle, draw, rounded corners, inner sep=0pt, text width=2.8cm,minimum height=1cm,text centered] (dedup) at (2.5,-2.5) {Unique items \hspace{1cm} $n=1,039$};
+		\draw[->,>=latex] (pubmed) -> (dedup);
+		\draw[->,>=latex] (embase) -> (dedup);
+		
+		\node[anchor=west] (t2) at (-6,-3.75) {\textit{Title and abstract screening}};
+		\node[rectangle, draw, rounded corners, inner sep=0pt, text width=2.8cm,minimum height=1cm,text centered] (screened) at (2.5,-5) {Screened \hspace{1cm} $n=32$};
+		\draw[->,>=latex] (dedup) -> (screened);
+		
+		\node[anchor=west] (t3) at (-6,-6.25) {\textit{Full-text screening}};
+		\node[rectangle, draw, rounded corners, inner sep=0pt, text width=2.8cm,minimum height=1cm,text centered] (included) at (2.5,-7.5) {Included \hspace{1cm} $n=8$};
+		\draw[->,>=latex] (screened) -> (included);
+		
+		\end{tikzpicture}
+		\caption{Flowchart of the update to the systematic review.}
+		\label{fig:flow}
+	\end{figure}
+	
+	\section{Additional model description}
+	
+	
+	\subsection{HIV transmission dynamics}
+	
+	We developed a deterministic, population-based HIV-1 transmission model using ordinary differential equations (ODEs) (figure \ref{fig:odemodel}). Our objective was to jointly model four key indicators of the local HIV epidemic (HIV prevalence, ART coverage, AIDS-related mortality, and population size) and the level of PDR for the adult population of a given country during the period 2000--2018.
+	
+	The adult population of each country is divided into six compartments: susceptible to HIV-1 ($S$), infected with a NNRTI-sensitive strain of HIV-1 and untreated ($I$), infected with a NNRTI-sensitive strain and treated with first-line ART ($T$), infected with a NNRTI-resistant strain and untreated ($J$), infected with a NNRTI-resistant strain and treated with first-line ART (virological failure, $U$), and infected with a NNRTI-resistant strain and treated with second-line ART ($V$).
+	The model considers the following dynamics:
+	
+	Transitions between compartments reflect the following mechanisms:
+	\begin{itemize}
+		\item \textbf{Transmission}. 
+		Susceptible individuals may acquire a NNRTI-sensitive strain of HIV-1 from $I$, or a NNRTI-resistant strain from $J$ or $U$, according to a transmission rate $\beta$.
+		This assumes that (1) individuals infected with a NNRTI-sensitive strain and treated with first-line ART (compartment $T$) or individuals infected with a NNRTI-resistant strain and treated with second-line ART (compartment $V$) do not transmit the virus at a meaningful level\cite{supervie2014heterosexual} and (2) there is no fitness cost associated with the transmission of NNRTI-resistant strains \cite{little2008persistence}.
+		
+		\item \textbf{First-line, NNRTI-based treatment}. 
+		The progressive roll-out of NNRTI-based ART from the early 2000s is modeled using a logistic growth function.
+		This feature is implemented as follows: a maximum treatment rate $\tau$ is constrained by an indicator variable $f(t,\nu,\xi)$:
+		\begin{equation}
+		f(t,\nu,\xi) = \frac{1}{1+e^{-\xi (t-\nu)}} 
+		\end{equation}
+		which takes as input $\nu$ the time until treatment reaches 50\% of its maximal value, and $\xi$ the steepness of the logistic curve.
+		This rate applies to both $I$ and $J$ compartments, assuming that individuals infected with a NNRTI-sensitive or NNRTI-resistant strain of HIV-1 are equally likely to initiate ART as drug resistance tests are not performed in routine.
+		
+		\item \textbf{Emergence of \emph{de novo} NNRTI resistance}. 
+		Individuals infected by a NNRTI-sensitive strain and under first-line ART (compartment $T$) may acquire resistance to NNRTI with a rate $\omega$ in response to the selective pressure created by the treatment.
+		As the model does not differentiate between virological suppression, treatment failure or non-adherence (because no data on these aspects could be found for each country over the period), $\omega$ is interpreted as a compound measure of all phenomenons leading to the occurrence of drug resistance mutations under treatment including poor ART adherence, low patient retention, quality of ART service delivery and unreliable supply chains. 
+		
+		\item \textbf{Second-line, NNRTI-free ART}.
+		Adults who fail first-line ART due to NNRTI resistance (compartment $U$) may be switched to second-line ART regimens that do not include with a rate $\kappa$.
+		
+		\item \textbf{Demography}.
+		New susceptible adults enter the population at rate $\eta$. 
+		All adults can die from background mortality at rate $\mu$, which we fix to the inverse of the life expectancy in adults in each country.
+		HIV-1 infected adults without treatment (compartments $I$ and $J$) or who fail firt-line ART without being switched to second line (compartment $U$) may die from AIDS-related mortality at rate $\delta$.
+	\end{itemize}
+	
+	
+	\begin{figure}[h]
+		\centering
+		
+		\scalebox{.9}{
+			\begin{tikzpicture}
+			\node[circle, draw, inner sep=0pt, minimum size=1cm] (S) at (0,0) {$S$};
+			\node[circle, draw, inner sep=0pt, minimum size=1cm] (I) at (4,1.5) {$I$};
+			\node[circle, draw, inner sep=0pt, minimum size=1cm] (T) at (8,1.5) {$T$};
+			\node[circle, draw, inner sep=0pt, minimum size=1cm] (J) at (4,-1.5) {$J$};
+			\node[circle, draw, inner sep=0pt, minimum size=1cm] (U) at (8,-1.5) {$U$};
+			\node[circle, draw, inner sep=0pt, minimum size=1cm] (V) at (12,-1.5) {$V$};
+			
+			\draw[->,>=latex] (S) edge node[yshift=13pt] { $\beta S \frac{I}{N}$} (I);
+			\draw[->,>=latex] (S) edge node[yshift=-13pt] { $\beta S \frac{J+U}{N}$} (J);
+			\draw[->,>=latex] (I) edge node[above] { $\tau f(t,\nu,\xi)$} (T);
+			\draw[->,>=latex] (J) edge node[below] { $\tau f(t,\nu,\xi)$} (U);
+			\draw[->,>=latex] (T) edge node[right] { $\omega$} (U);
+			\draw[->,>=latex] (U) edge node[below] { $\kappa$} (V);
+			
+			\draw[<-,>=latex] (S) -- ++(-1.5,0) node [above,pos=.4] {$\eta$};
+			\draw[->,>=latex] (S) -- ++(0,1.5) node [right,pos=.4] {$\mu$};
+			\draw[->,>=latex] (I) -- ++(0,1.5) node [right,pos=.4] {$\mu+\delta$};
+			\draw[->,>=latex] (T) -- ++(0,1.5) node [right,pos=.4] {$\mu$};
+			\draw[->,>=latex] (J) -- ++(0,-1.5) node [right,pos=.4] {$\mu+\delta$};
+			\draw[->,>=latex] (U) -- ++(0,-1.5) node [right,pos=.4] {$\mu+\delta$};
+			\draw[->,>=latex] (V) -- ++(0,-1.5) node [right,pos=.4] {$\mu$};
+			\end{tikzpicture}
+		}
+		
+		\caption{Schematic illustration of the HIV transmission model.}
+		\label{fig:odemodel}
+	\end{figure}
+	
+	
+	
+	We select $t_0=1999$ as the starting date.
+	Initial conditions are set-up using data for the year 1999 (population size $\mathds{D}_0$ and HIV prevalence $\mathds{A}_0$). 
+	An additional parameter $\iota$ is introduced to represent the initial proportion of individuals infected with a resistant strain:
+	\begin{align}
+	\begin{split}
+	S(t_0) &= \mathds{D}_0-\mathds{A}_0 \\
+	I(t_0) &= (1-\iota) \ \mathds{A}_0 \\
+	J(t_0) &= \iota \ \mathds{A}_0 \\
+	T(t_0) &= 0 \\
+	U(t_0) &= 0 \\
+	V(t_0) &= 0
+	\end{split}
+	\end{align}
+	The ODE system thus relies upon seven parameters related to the natural history of HIV in a country $\theta_1 = \{\beta, \tau, \nu, \xi, \kappa, \eta, \delta\}$ ($\mu$ being fixed to a chosen value) and two parameters related to resistance to NNRTI $\theta_2=\{\omega, \iota\}$.
+	Upon solving the ODE system with numerical methods \cite{dormand1980family}, we obtain as output the number of individuals in each compartment $S(t)$, $I(t)$, $J(t)$, $T(t)$, $U(t)$ and $V(t)$ for each year $t \in \{2000,\cdots,2018\}$.
+	
+	In addition to these, we introduce three dummy compartments that do not have any influence on the system dynamics but only record the cumulative incidence of AIDS-related deaths $C_D$:
+	\begin{equation}
+	\frac{dC_D}{dt} = \delta (I + J + U)
+	\end{equation}
+	and the cumulative incidence of new treatment initiations of individuals infected a with NNRTI-sensitive ($C_T$) or a resistant strain ($C_U$):
+	\begin{align}
+	\begin{split}
+	\frac{dC_T}{dt} &= \tau f(t,\nu,\xi)I \\
+	\frac{dC_U}{dt} &= \tau f(t,\nu,\xi)J
+	\end{split}
+	\end{align}
+	
+	Outputs from the ODE system are further transformed into a set of values $\{a_t,\ldots,e_t\}$ matching the structure of the data, as shown in Table \ref{table:transform}. 
+	
+	\begin{table}[H]
+		\centering
+		\caption{Data and correspondence with model outputs.}
+		\label{table:transform}
+		\begin{tabular}{lp{6.6cm}l}
+			\hline \\[-.6em]
+			Data &  Interpretation  & Corresponding ODE output \\[.2em]
+			\hline \\[-.6em]
+			$\mathds{A}_t$ & Number of adults living with HIV at year $t$  & $a_t = I(t)+T(t)+J(t)+U(t)+V(t)$\\[.3em]
+			$\mathds{B}_t$ & Number adults on first-line or second-line ART at year $t$  & $b_t = T(t)+U(t)+V(t)$\\ [.3em]
+			$\mathds{C}_t$ & Number of AIDS-related deaths among adults at year $t$  & $c_t = C_D(t)  - C_D(t-1)$\\ [.3em]
+			$\mathds{D}_t$ & Adult population size  at year $t$  & $d_t = S(t)+I(t)+T(t)+J(t)+U(t)+V(t)$\\ [.6em]
+			$\mathds{E}_t/\mathds{N}_t$ & Proportion of ART naïve adults infected with an NNRTI-resistant strain in a survey of size conducted at year $t$ & $e_t =  \frac{C_U(t)-C_U(t-1)}{C_U(t) -C_U(t-1) + C_T(t) - C_T(t-1)}$\\ [.4em]
+			\hline 
+		\end{tabular} 
+	\end{table}
+	
+	
+	\subsection{Hierarchical structure}
+	
+	The previous section described the model in one country.
+	In order to extend the model to 9 countries, we consider 9 parallel and hierarchically-structured ODE systems.
+	In country $j$, parameters related to the natural history of HIV $\theta_{1,j}$ are considered as independent across countries. 
+	We impose a hierarchical structure by country on the parameters related to NNRTI resistance $\theta_{2,j}$, so that:
+	\begin{align}
+	\begin{split}
+	&\omega_j \sim \text{lognormal}(\mu_{\omega},\sigma_{\omega}) \\
+	&\log\frac{\iota_j}{1-\iota_j} \sim \mathcal{N}(\mu_{\iota},\sigma_{\iota})
+	\end{split}
+	\end{align}
+	where $\theta_3 = \{\mu_{\omega},\sigma_{\omega},\mu_{\iota},\sigma_{\iota}\}$ are hyperparameters governing the between-country distribution of the ``random-effects'' $\omega_j$ and $\iota_j$.
+	We can consider the full ODE model as a function with as inputs the parameters and as outputs the model-predicted HIV-1 prevalence, ART coverage, AIDS-related mortality, population size and NNRTI PDR in each country for the period 2000--2018:
+	\begin{equation}
+	g(\theta_{1,j},\theta_{2,j},\theta_3) = \{a_{j,t},b_{j,t},c_{j,t},d_{j,t},e_{j,t}\}
+	\end{equation}
+	
+	
+	\subsection{Statistical inference}
+	
+	The outputs of the ODE system $	\{a_{j,t},\ldots,e_{j,t}\}$ at time $t$ in country $j$ are fitted to data in order to estimate the parameters .
+	
+	For the four key indicators of the HIV-1 epidemic, we use a multivariate normal likelihood after a variance-stabilizing square-root transformation \cite{yu2009variance}, which can be expressed as:
+	\begin{equation}
+	\label{eq:abcd}
+	\Pr(
+	\mathds{A}_{j,t},\mathds{B}_{j,t},\mathds{C}_{j,t},,\mathds{D}_{j,t} \ | \ \theta_{1,j},\theta_{2,j},\theta_3,\Sigma_j )  = 
+	\mathcal{N}\left(
+	\sqrt{
+		\begin{bmatrix}\mathds{A}_{j,t} \\ \mathds{B}_{j,t} \\ \mathds{C}_{j,t} \\ \mathds{D}_{j,t} \end{bmatrix} 
+	}
+	\ \middle| \
+	\sqrt{
+		\begin{bmatrix}a_{j,t} \\ b_{j,t} \\ c_{j,t}\\ d_{j,t}\end{bmatrix} 
+	}
+	,  \
+	\Sigma_j
+	\right)
+	\end{equation}
+	Here, $\Sigma_j$ is a diagonal covariance matrix:
+	\begin{equation}
+	\Sigma_j = 
+	\begin{bmatrix}
+	\sigma_{j,a}^2 & 0 &0 & 0 \\
+	0 & \sigma_{j,b}^2  &0 &0 \\
+	0 & 0 & \sigma_{j,c}^2 & 0 \\
+	0 & 0 & 0 & \sigma_{j,d}^2 
+	\end{bmatrix}
+	\end{equation}
+	and $\{\sigma_{j,a}^2,\cdots,\sigma_{j,d}^2\}$ are variance parameters, with covariance parameters being fixed to 0.
+	
+	Survey data on NNRTI PDR has a different structure.
+	Considering survey $i$, data consists of the number of ART-naïve adults with NNRTI resistance $\mathds{E}_i$, the sample size $\mathds{N}_i$, the year of sampling $\mathds{T}_i$ and the country of sampling $\mathds{J}_i$.
+	We use a binomial likelihood of the following form:
+	\begin{equation}
+	\label{eq:e}
+	\Pr(\mathds{E}_i,\mathds{N}_i,\mathds{T}_i,\mathds{J}_i | \theta_{1,\mathds{J}_i},\theta_{2,\mathds{J}_i},\theta_3,\Sigma_{\mathds{J}_i}) = \text{Binom}(\mathds{E}_i  \ | \ \mathds{N}_i, e_{\mathds{J}_i,\mathds{T}_i})
+	\end{equation}
+	
+	The full likelihood can be expressed as:
+	\begin{align}
+	\begin{split}
+	\Pr(\mathds{A},\mathds{B},\mathds{C},\mathds{D},\mathds{E},\mathds{N},\mathds{T},\mathds{J} |  \theta_{1},\theta_{2},\theta_3,\Sigma) = &\prod_{j} \prod_t  \Pr(
+	\mathds{A}_{j,t},\mathds{B}_{j,t},\mathds{C}_{j,t},,\mathds{D}_{j,t} \ | \ \theta_{1,j},\theta_{2,j},\theta_3,\Sigma_j )
+	\times \\
+	&\prod_i \Pr(\mathds{E}_i,\mathds{N}_i,\mathds{T}_i,\mathds{J}_i | \theta_{1,\mathds{J}_i},\theta_{2,\mathds{J}_i},\theta_3,\Sigma_{\mathds{J}_i})
+	\end{split} 
+	\end{align}
+	
+	
+	\begin{table}[H]
+		\centering
+		\caption{Parameters of the model and chosen prior distributions.}
+		\label{table:priors2}
+		\begin{tabular}{lp{9.5cm}p{2.9cm}l}
+			\hline \\[-.8em]
+			Parameter & Interpretation & Prior & Unit \\
+			\hline \\[-.8em]
+			\multicolumn{4}{l}{{Country-level parameters}} \\[.2em]
+			\hspace{.8em}$\beta_j$ & Transmission rate & $\text{Expon}(5)$ & y$^{-1}$\\ 
+			\hspace{.8em}$\tau_j$ & Maximum treatment rate & $\text{Expon}(5)$ & y$^{-1}$ \\ 
+			\hspace{.8em}$\nu_j$ & Delay until the effective treatment rate reaches 50\% of its maximum & $\text{Expon}(0.5)$& y  \\ 
+			\hspace{.8em}$\xi_j$ & Slope of logistic function & $\text{Beta}(2,2)$ & -\\ 
+			\hspace{.8em}$\kappa_j$ & Rate of switching to second-line ART &  $\text{Expon}(5)$ & y$^{-1}$\\
+			\hspace{.8em}$\delta_j$ & AIDS-related mortality rate &$\text{Expon}(5)$& y$^{-1}$ \\ 
+			\hspace{.8em}$\eta_j$ & Adult population growth rate & $\text{Expon}(5)$ & y$^{-1}$\\ 
+			\hspace{.8em}$\omega_j$ & Rate of treatment failure due to NNRTI resistance & $\text{Gamma}(\mu_{\omega},\sigma_{\omega})$ & y$^{-1}$\\ 
+			\hspace{.8em}$\iota_j$ & Initial proportion of NNRTI resistance in 1999 & $\mathcal{N}(\text{logit} (\mu_{\iota}),\sigma_{\iota})$ & y$^{-1}$\\ [.2em]
+			\multicolumn{4}{l}{{Hyperparameters}} \\[.2em]
+			\hspace{.8em}$\mu_{\omega}$ & Location of the distribution of $\omega_j$ across countries & $\text{Expon}(5)$ & y$^{-1}$\\ 
+			\hspace{.8em}$\sigma_{\omega}$ &  Scale of the distribution of  $\omega_j$ across countries & $\text{Expon}(20)$ & y$^{-1}$\\ 
+			\hspace{.8em}$\mu_{\iota}$ & Location of the distribution of $\iota_j$ across countries & $\text{Beta}(1,9)$ & y$^{-1}$\\ 
+			\hspace{.8em}$\sigma_{\iota}$ &  Scale of the distribution of  $\iota_j$ across countries & $\text{Expon}(5)$ & y$^{-1}$\\ [.2em]
+			\multicolumn{4}{l}{{Variance parameters}} \\[.2em]
+			\hspace{.8em}$\Sigma_j$ & Covariance matrix, reparametrized into $\{\sigma_a,\cdots,\sigma_d\}$ & - & -\\ 
+			\hspace{.8em}$\{\sigma_{j,a},\cdots,\sigma_{j,d}\}$ & Scales for the multivariate normal distribution & $\text{Expon}(1)$& -\\
+			\hline 
+			
+		\end{tabular} 
+	\end{table}
+	
+	
+	\subsection{Prior predictive checks}
+	
+	We selected weakly-informative priors distributions for all parameters (table \ref{table:priors2}).
+	We conducted prior predictive checks \cite{gabry2019visualization} to ensure that the chosen priors limited the range of explored parameter space to sensible values.
+	For this, we generated fake data from the prior distributions and checked that the resulting values were compatible with actual data, without constraining parameter inference to specific values.
+	The results are shown in figures \ref{fig:ppc1} \ref{fig:ppc2}.
+	The large range of values generated from the prior distributions corresponds to the possibilities implied by our choice of priors.
+	This is an indication that our assumptions regarding the priors did not influence parameter inference, and that they can be qualified as ``weakly-informative''.
+	
+	\begin{sidewaysfigure}[h]
+		\includegraphics{../../figures/posterior_predictive_check_indicators.pdf}
+		\caption{Prior predictive check for indicator data. Grey areas correspond to the 95\% central range of values generated from the prior distributions. Colored areas correspond to the model fit. Circles are data points.}
+		\label{fig:ppc1}
+	\end{sidewaysfigure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics{../../figures/posterior_predictive_check_pdr.pdf}
+		\caption{Prior predictive check for NNRTI PDR data. Grey areas correspond to the 95\% central range of values generated from the prior distributions. Colored areas corresponds to the model fit. Circles are data points.}
+		\label{fig:ppc2}
+	\end{figure}
+	
+	
+	\subsection{Implementation and code}
+	
+	The model was implemented in Stan 2.18.2 \cite{carpenter2017stan}.
+	The joint posterior distribution of the parameters was explored with the No-U-Turn Sampler (NUTS), a variant of Hamiltonian Monte Carlo \cite{hoffman2014no}.
+	The model code, as well as posterior samples and R scripts are available on \url{https://github.com/jriou/nnrtipdr_sa}.
+	
+	
+%	
+%	\section{Additional results}
+%	
+%	\subsection{Correlation between parameters}
+%	
+%	Figure \ref{fig:corpar} and table \ref{tab:cor} shows the posterior correlation between all included parameters and two model outputs: the cumulative number of ART initiators during 2000-2018 and the level of NNRTI PDR in 2018.
+%	This suggests that higher levels of NNRTI PDR in 2018 in a country are mainly associated with higher levels of cumulative number of ART initiators over the period (itself determined by the maximal treatment rate and the slope and timing of ART roll-out), with a higher rate of treatment failure with NNRTI resistance and with less AIDS-related mortality.
+%	
+%	\begin{table}[h]
+%		\centering
+%		\caption{Correlation matrix between the posterior samples of the 8 model parameters and two model outputs: the cumulative number of ART initiators during 2000-2018 and the level of NNRTI PDR in 2018.}
+%		\label{tab:cor}
+%		\begin{tabular}{|r|rrrrrrrrrr|}
+%			\hline
+%			& $\beta$ & $\tau$ & $\xi$ & $\nu$ & $\kappa$ & $\delta$ & $\omega$ & $c$ & $\iota$ & $r$ \\ 
+%			\hline
+%			Transmission rate ($\beta$) & 1.00 & -0.58 & -0.22 & -0.01 & 0.07 & -0.65 & 0.21 & -0.20 & -0.61 & -0.12 \\ 
+%			Maximal treatment rate ($\tau$) & -0.58 & 1.00 & -0.42 & 0.52 & -0.15 & 0.32 & -0.05 & 0.49 & 0.36 & 0.49 \\ 
+%			Slope of ART roll-out  ($\xi$)  & -0.22 & -0.42 & 1.00 & -0.69 & -0.00 & -0.03 & -0.09 & -0.04 & -0.04 & -0.07 \\ 
+%			Timing of ART roll-out ($\nu$) & -0.01 & 0.52 & -0.69 & 1.00 & -0.05 & 0.23 & 0.14 & -0.28 & 0.29 & 0.22 \\ 
+%			Switching rate ($\kappa$) & 0.07 & -0.15 & -0.00 & -0.05 & 1.00 & 0.06 & 0.14 & -0.13 & 0.03 & -0.25 \\ 
+%			Mortality rate ($\delta$) & -0.65 & 0.32 & -0.03 & 0.23 & 0.06 & 1.00 & -0.54 & -0.39 & 0.69 & -0.48 \\ 
+%			TFNR$^{\dagger}$ ($\omega$) & 0.21 & -0.05 & -0.09 & 0.14 & 0.14 & -0.54 & 1.00 & 0.11 & -0.28 & 0.51 \\ 
+%			Cumulative ART initiators ($c$) & -0.20 & 0.49 & -0.04 & -0.28 & -0.13 & -0.39 & 0.11 & 1.00 & -0.22 & 0.59 \\ 
+%			NNRTI PDR in 1999 ($\iota$)& -0.61 & 0.36 & -0.04 & 0.29 & 0.03 & 0.69 & -0.28 & -0.22 & 1.00 & -0.15 \\ 
+%			NNRTI PDR in 2018 ($r$) & -0.12 & 0.49 & -0.07 & 0.22 & -0.25 & -0.48 & 0.51 & 0.59 & -0.15 & 1.00 \\ 
+%			\hline
+%			\multicolumn{9}{l}{$^{\dagger}$rate of treatment failure with NNRTI resistance}
+%		\end{tabular}
+%	\end{table}
+%	
+%	\begin{figure}[h]
+%		\centering
+%		\includegraphics[width=\linewidth]{../../figures/plot_cor_pars.png}
+%		\caption{Scatter plot of all posterior samples of the model parameter. A full size version of the plot is available on \url{https://github.com/jriou/nnrti_sa/figures/plot_cor_pars.png}.}
+%		\label{fig:corpar}
+%	\end{figure}
+%	
+%	\subsection{Exploratory analysis of the country-level drivers of NNRTI resistance}
+%	
+%	Figure \ref{fig:corcovariates} shows the scatter plots corresponding to the exploratory analysis 
+%	
+%	\begin{figure}[h]
+%		\centering
+%		\includegraphics[width=.7\linewidth]{../../figures/cor_covariates.pdf}
+%		\caption{Scatter plot of the rate of treatment failure due to NNRTI resistance (y-axis, median and 95\% credible interval) with 8 country-level covariates (PMTCT is protection of mother-to-child transmission). Note that the correlation coefficients shown in Table 2 of the main paper are not driven by the result in RSA (South Africa) because it is computed using rank-based methods (Spearman's rank correlation).}
+%		\label{fig:corcovariates}
+%	\end{figure}
+%	
+	%
+	%
+	%\begin{itemize}
+	%	\item \textbf{HIV-1 transmission}.
+	%	The force of infection of drug-sensitive and drug-resistant HIV-1 strains depends on the transmission rate $\beta$. We assumed that only individuals without treatment (compartments $I$ and $J$) or who fail first-line treatment (compartment $U$) can transmit HIV-1,\cite{supervie2014heterosexual} and that there is no fitness cost associated with the transmission of drug-resistant strains.\cite{little2008persistence}
+	%	
+	%	\item \textbf{First-line NNRTI-based ART}.
+	%	Untreated individuals initiate first-line ART at a time-dependent rate $\tau f(t,\xi,\nu)$, where the maximal treatment rate $\tau$ is scaled by a sigmoid function $f(t,\xi,\nu)$ to reflect the progressive roll-out of ART. This function 
+	%	
+	%	\item \textbf{\emph{De novo} NNRTI resistance emergence}. 
+	%	HIV-1 infected patients on first-line ART can acquire \emph{de novo} NNRTI resistance at rate $\omega$ (DNR).
+	%	
+	%	\item \textbf{Second-line NNRTI-free ART}. 
+	%	Individuals who fail first-line ART due to NNRTI resistance may be switched to second-line NNRTI-free ART regimens at rate $\kappa$.
+	%	
+	%	\item \textbf{Demography}.
+	%	Susceptible adults enter the population at rate $\eta$. All individuals can die from background mortality at rate $\mu$ which we set to the inverse of the life expectancy in adults in each country. HIV-1 infected individuals without treatment (compartments $I$ and $J$) or who fail first-line ART (compartment $U$) die from AIDS-related mortality at rate $\delta$.
+	%\end{itemize}
+	%
+	%
+	%\begin{itemize}
+	%	\item \textit{HIV-1 transmission}.
+	%	The force of infection of NNRTI-sensitive and NNRTI-resistant strains of HIV-1 depends on a transmission rate $\beta$. We assume that individuals under adapted ART (compartments $T$ and $V$) are virologically suppressed and thus not infectious, and that there is not fitness cost associated with the transmission of resistant strains.
+	%	\item \textit{Treatment}.
+	%	Untreated individuals ($I$ and $J$) initiate ART at a time-dependent treatment rate $\tau (t)$ which is modelled using a sigmoid function to reflect the roll-out of ART (controlled by a slope $\xi$ and a shift $\nu$, see appendix).
+	%	\item \textit{Occurrence of NNRTI resistance}. 
+	%	Individuals on ART that are infected with an NNRTI-sensitive strain ($T$) may acquire resistance to NNRTI at rate $\omega$. $\omega$ is thus a compound parameter including factors such as poor ART adherence, low patient retention, quality of ART service delivery, and unreliable supply chains.
+	%	\item \textit{Demography}.
+	%	New susceptible individuals enter the population at rate $\eta$. Untreated HIV-infected individuals ($I$ and $J$) die of AIDS at rate $\delta$. We ignored background mortality as it has limited effects during the short time period studied.
+	%\end{itemize}
+	%The starting date was set as 2000, at which point the initial conditions of population and HIV prevalence were directly informed by data. The initial proportion of resistance was controlled by a parameter $\iota$ and estimated from data.
+	%In relation to this model, PDR, i.e. the proportion of resistance among ART initiators, was defined as the ratio of the flux $J \rightarrow U$ over the sum of the fluxes $J \rightarrow U$ and $I \rightarrow T$.
+	%
+	%\begin{table}[h]
+	%	\centering
+	%	\caption{Parameters of the HIV transmission model.}
+	%	\label{table:priors}
+	%	\begin{tabular}{lp{9.5cm}p{2.9cm}l}
+	%		\hline \\[-.8em]
+	%		Parameter & Interpretation & Prior & Unit \\
+	%		\hline \\[-.7em]
+	%		\multicolumn{4}{l}{{\em Related to local HIV dynamics ($\theta_{1,j}$)}} \\[.2em]
+	%		\hspace{.8em}$\beta_j$ & Transmission rate & $\text{Expon}(5)$ & y$^{-1}$\\ 
+	%		\hspace{.8em}$\tau_j$ & Maximum treatment rate & $\text{Expon}(5)$ & y$^{-1}$ \\ 
+	%		\hspace{.8em}$\nu_j$ & Time until the treatment rate reaches 50\% of maximum & $\text{Expon}(0.5)$& y  \\ 
+	%		\hspace{.8em}$\xi_j$ & Slope of logistic treatment rate & $\text{Beta}(2,2)+0.5$ & -\\ 
+	%		\hspace{.8em}$\delta_j$ & AIDS-related mortality rate &$\text{Expon}(10)$& y$^{-1}$ \\ 
+	%		\hspace{.8em}$\eta_j$ & Adult population growth rate & $\text{Expon}(10)$ & y$^{-1}$\\ 
+	%		\hspace{.8em}$\sigma^a_j,\cdots,\sigma^d_j$ & Scales for normal distributions & $\text{Expon}(0.1)$& -\\[.2em] 
+	%		\hline \\[-.7em]
+	%		\multicolumn{4}{l}{{\em Related to NNRTI resistance ($\theta_{2,j}$)}} \\[.2em]
+	%		\hspace{.8em}$\omega_j$ & Rate of resistance occurrence during treatment & $\text{lognormal}(\mu_{\omega},\sigma_{\omega})$ & y$^{-1}$\\ 
+	%		\hspace{.8em}$\iota_j$ & Initial proportion of NNRTI resistance in 2000 & $\text{inv.logit}\left(\mathcal{N}(\mu_{\iota},\sigma_{\iota})\right)$ & y$^{-1}$\\ [.2em]
+	%		\hspace{.8em}$\mu_{\omega}$ & Location hyperparameter for the distribution of $\omega_j$ across countries & $\text{Expon}(10)$ & y$^{-1}$\\ 
+	%		\hspace{.8em}$\sigma_{\omega}$ &  Scale hyperparameter for the distribution of  $\omega_j$ across countries & $\text{Expon}(10)$ & y$^{-1}$\\ 
+	%		\hspace{.8em}$\mu_{\iota}$ & Location hyperparameter for the distribution of $\iota_j$ across countries & $\text{logit}\left(\text{Beta}(1,99)\right)$ & y$^{-1}$\\ 
+	%		\hspace{.8em}$\sigma_{\iota}$ &  Scale hyperparameter for the distribution of  $\iota_j$ across countries & $\text{Expon}(10)$ & y$^{-1}$\\
+	%		\hspace{.8em}$\sigma_{e,j}$ & Scale of the study-specific random effect & $\text{Expon}(10)$ & - \\ 
+	%		\hline 
+	%	\end{tabular} 
+	%\end{table}
+	%
+	%\subsubsection{Hierarchical structure}
+	%
+	%To describe the spread of NNRTI resistance in all countries, we considered 9 parallel and hierarchically-structured ODE models. For each country $j$, we assumed the parameters related to the natural history of HIV $\theta_{1,j}$ to be independent across countries. We imposed a hierarchical structure by country on the parameters related to NNRTI resistance $\theta_{2,j}$:
+	%\begin{align}
+	%\begin{split}
+	%&\omega_j \sim \text{lognormal}(\mu_{\omega},\sigma_{\omega}) \\
+	%&\log\frac{\iota_j}{1-\iota_j} \sim \mathcal{N}(\mu_{\iota},\sigma_{\iota})
+	%\end{split}
+	%\end{align}
+	%where $\{\mu_{\omega},\sigma_{\omega},\mu_{\iota},\sigma_{\iota}\}$ are hyper-parameters governing the between-country distribution of the random effects $\omega_j$ and $\iota_j$.
+	%
+	%\subsubsection{Statistical inference}
+	%
+	%We jointly fitted the output of the HIV transmission model to the corresponding data. For computational reasons, we split the inference procedure into two steps (appendix B). We implemented the complete Bayesian modelling framework in Stan 2.18.2 \cite{carpenter2017stan}. We selected weakly-informative prior distributions for all parameters. We conducted prior predictive checks \cite{gabry2019visualization} to ensure that the chosen priors limited the range of explored parameter space to sensible values. We explored the joint posterior distribution of the parameters using the No-U-Turn Sampler (NUTS), a variant of Hamiltonian Monte Carlo \cite{hoffman2014no}. All data and R/Stan code files are available from GitHub (\url{https://github.com/jriou/nnrti_sa}).
+	%
+	
+	
+	
+	
+	\bibliography{../manuscript/nnrti_res}
+	\bibliographystyle{unsrt}  
+	
+	
+\end{document}
