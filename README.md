@@ -1,8 +1,10 @@
 *This repository countains all code and data necessary for reproducing the analysis presented in:*
 
-# Dynamics and drivers of HIV-1 drug resistance to non-nucleoside reverse-transcriptase inhibitors in nine African countries
+# Drivers of HIV-1 drug resistance to non-nucleoside reverse-transcriptase inhibitors (NNRTIs) in nine southern African countries: a modelling study
 
 Julien Riou, Carole Dupont, Silvia Bertagnolio, Ravindra K. Gupta, Roger D. Kouyos, Matthias Egger, Christian L. Althaus
+
+Published in BMC Infectious Diseases.
 
 *Abstract:*
 
