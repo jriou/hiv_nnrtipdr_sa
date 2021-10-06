@@ -1,0 +1,11 @@
+*.zip
+*.Rproj
+*.Rproj.user
+*.Rhistory
+*.RData
+*.Ruserdata
+
+manuscript/
+submission/
+presentation/
+poster/

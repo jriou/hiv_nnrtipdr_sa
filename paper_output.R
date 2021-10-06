@@ -14,7 +14,7 @@ country_key$Country.Abb2 = c("BWA","LSO","MWI","MOZ","NAM","RSA","ESW","ZMB","ZW
 
 ## Model M6 -----------------------------------------------------------------------
 
-l = load("models/M6_2019-11-18.Rdata")
+l = load("models/M6_2020-06-10.Rdata")
 
 check_hmc_diagnostics(S_M6)
 ppM6 = c("beta","tau","nu","xi","eta","delta","kappa","mu_omega","sigma_omega","omega","mu_iota","sigma_iota","iota","sigma")
@@ -119,7 +119,6 @@ tt_cum_inc = rstan::extract(S_M6,pars="y")[[1]][,,18,7] %>%
   gather("CountryID","cum_inc",1:9) %>%
   mutate(CountryID=as.numeric(gsub("V","",CountryID))) %>%
   left_join(init_prev) %>%
-  select(-pop) %>%
   left_join(country_key) %>%
   mutate(cum_inc=((cum_inc*pop)+init_prev)/pop) %>%
   select(CountryID,cum_inc) %>%
@@ -143,7 +142,6 @@ tt = left_join(tt_tau,tt_nu) %>%
 
 ## Text ----------------------------------------------------------------------------
 
-
 omega = extract(S_M6,pars="omega")[[1]]
 mu_omega = extract(S_M6,pars="mu_omega")[[1]]
 kappa = extract(S_M6,pars="kappa")[[1]]
@@ -151,9 +149,6 @@ comp = omega
 for(i in 1:9) {
   comp[,i] = omega[,i] / kappa[,i]
 }
-
-
-
 
 adjusted_growth = t(apply(comp,2,qsum)) %>%
   as.data.frame()  %>%
@@ -167,14 +162,11 @@ ggplot(adjusted_growth) +
   scale_y_log10(expand=c(0,0)) +
   coord_cartesian(ylim=c(0.001,11))
 
-
 summary(S_M6,pars="mu_omega")[[1]] %>%
   as.data.frame() %>% 
   tbl_df() %>%
   select(`50%`,`2.5%`,`97.5%`) %>%
   mutate(inv50=1-exp(-`50%`),inv25=1-exp(-`2.5%`),inv97=1-exp(-`97.5%`))
-
-
 
 ## omega
 summary(S_M6,pars="omega")[[1]] %>%
@@ -350,6 +342,9 @@ select(tt1,Country=Country.Name2,shift=nu,intensity=tau,Prev2018=pred2018,Prev20
   xtable() %>%
   print(include.rownames=FALSE)
 
+select(tt1,Country=Country.Name2,shift=nu,intensity=tau,Prev2018=pred2018,Prev2000=iota,propiota,argnp) %>%
+  arrange(Country) %>%
+  write.table(., file = paste0(fig_path,"table1.txt"), sep = ",", quote = FALSE, row.names = F)
 
 # suppression
 
@@ -390,13 +385,16 @@ yy_prop_supp_b %>%
 
 ## Figure indicators
 plot_indicators(samples=S_M6,data.list=D_S_M6,key=country_key)
-ggsave(file="figures/post_indicators_M6.pdf",width=8,height=5)
+ggsave(file=paste0(fig_path,"fig2b.pdf"),width=8,height=5)
 
 
 ## Figure PDR
 plot_pdr(samples=S_M6,data.list=D_S_M6,key=country_key,ylim = .3)
 ggsave(file="figures/post_pdr_M6.pdf",width=5.5,height=4)
 
+
+plot_pdr3(samples=S_M6,data.list=D_S_M6,key=country_key,ylim = .3,outliers=c(13,50))
+ggsave(file="figures/fig4.pdf",width=5.5,height=4)
 
 ## Figure ART rollout
 g3A = summary(S_M6,pars="tau_t")[[1]] %>%
@@ -544,14 +542,14 @@ meds = group_by(africa,Country.Abb) %>%
   summarise(xmed=median(long),ymed=median(lat)) %>%
   mutate(x2=xmed,y2=ymed) %>%
   filter(!is.na(Country.Abb))
-meds[meds$Country.Abb=="LSO",2:3] = c(35,-32)
-meds[meds$Country.Abb=="MOZ",2:5] = c(40,-21,36,-18)
-meds[meds$Country.Abb=="MWI",2:5] = c(36,-7,34,-11)
-meds[meds$Country.Abb=="ZAF",2:5] = c(24,-29,24,-29)
-meds[meds$Country.Abb=="SWZ",2:5] = c(37,-27,31.5,-26.6)
-meds[meds$Country.Abb=="ZMB",2:5] = c(26,-15,26,-15)
-meds[meds$Country.Abb=="NAM",2:5] = c(17.1,-20.0,17.1,-20 )
-meds[meds$Country.Abb=="BWA",2:5] = c(24.4 ,-22.3,24.4, -22.3)
+meds[meds$Country.Abb=="LSO",2:3] = list(35,-32)
+meds[meds$Country.Abb=="MOZ",2:5] = list(40,-21,36,-18)
+meds[meds$Country.Abb=="MWI",2:5] = list(36,-7,34,-11)
+meds[meds$Country.Abb=="ZAF",2:5] = list(24,-29,24,-29)
+meds[meds$Country.Abb=="SWZ",2:5] = list(37,-27,31.5,-26.6)
+meds[meds$Country.Abb=="ZMB",2:5] = list(26,-15,26,-15)
+meds[meds$Country.Abb=="NAM",2:5] = list(17.1,-20.0,17.1,-20 )
+meds[meds$Country.Abb=="BWA",2:5] = list(24.4 ,-22.3,24.4, -22.3)
 meds = left_join(meds,country_key)
 
 africa2 = filter(africa,Country.Abb=="LSO")
@@ -565,7 +563,7 @@ g3C = ggplot() +
   geom_label(data=meds,aes(x=xmed,y=ymed,label=Country.Abb2),size=2.5) +
   coord_map(xlim=c(0,43),ylim=c(-36,-4)) +
   scale_fill_gradient(low="green",high="red",trans="log",na.value="white",breaks=c(0.001,0.01,0.1,1,10)) +
-  labs(x="Longitude",y="Latitude",fill="Vulnerability to\nNNRTI PDR") +
+  labs(x="Longitude",y="Latitude",fill="Fragility index") +
   theme(legend.position=c(.15,.25),
         legend.margin=margin(4,5,4,4,"pt"),
         legend.box.background = element_rect(fill="white",colour = "grey60",size=.4),
@@ -581,13 +579,13 @@ xx = group_by(tt,Country.Abb) %>%
   summarise(x=median(cum_art/cum_inc),y=median(argnt),col=median(pred2018)) %>%
   mutate(xlab=x+.04,
          ylab=y+.1)
-xx[xx$Country.Abb=="MOZ",c("xlab","ylab")] = c(.28,.4)
-xx[xx$Country.Abb=="LSO",c("xlab","ylab")] = c(.33,.8)
-xx[xx$Country.Abb=="ZWE",c("xlab","ylab")] = c(.37,.6)
-xx[xx$Country.Abb=="ZMB",c("xlab","ylab")] = c(.42,.5)
-xx[xx$Country.Abb=="MWI",c("xlab","ylab")] = c(.5,.7)
-xx[xx$Country.Abb=="BWA",c("xlab","ylab")] = c(.57,0)
-xx[xx$Country.Abb=="NAM",c("xlab","ylab")] = c(.59,.5)
+xx[xx$Country.Abb=="MOZ",c("xlab","ylab")] = list(.28,.4)
+xx[xx$Country.Abb=="LSO",c("xlab","ylab")] = list(.33,.8)
+xx[xx$Country.Abb=="ZWE",c("xlab","ylab")] = list(.37,.6)
+xx[xx$Country.Abb=="ZMB",c("xlab","ylab")] = list(.42,.5)
+xx[xx$Country.Abb=="MWI",c("xlab","ylab")] = list(.5,.7)
+xx[xx$Country.Abb=="BWA",c("xlab","ylab")] = list(.57,0)
+xx[xx$Country.Abb=="NAM",c("xlab","ylab")] = list(.59,.5)
 xx = left_join(xx,country_key)
 
 g3D = ggplot() +
@@ -597,7 +595,7 @@ g3D = ggplot() +
   # scale_y_log10() +
   scale_x_continuous(labels=scales::percent) +
   coord_cartesian(ylim=c(0,5)) +
-  labs(x="Cumulative number of ART initiators",y="Vulnerability to NNRTI PDR",colour="NNRTI PDR\n(2018)") +
+  labs(x="Cumulative number of ART initiators",y="Fragility index",colour="NNRTI PDR\nin 2018") +
   geom_segment(data=xx,aes(x=x,y=y,xend=xlab,yend=ylab)) +
   geom_label(data=xx,aes(x=xlab,y=ylab,label=Country.Abb2),size=2.5) +
   theme(legend.position=c(.2,.72),
@@ -606,10 +604,13 @@ g3D = ggplot() +
         legend.text=element_text(size=6.5),
         legend.key.height=unit(12,"pt"))
 
-
+g3D
 
 plot_grid(g3A,g3C,g3D,ncol=1,labels=c("A","B","C","D"),rel_heights = c(1,1,1))
-ggsave(file="figures/plot_panel_M6b.pdf",width=4,height=9.75)
+ggsave(file=paste0(fig_path,"fig3.pdf"),width=4,height=9.75)
+
+
+
 
 tt$cum_art2 = tt$cum_art/tt$cum_inc
 getmode = function(x) {
@@ -690,7 +691,18 @@ t(apply(cc,2,qsum)) %>%
   xtable() %>%
   print(include.rownames=FALSE)
   
-  
+t(apply(cc,2,qsum)) %>%
+  as.data.frame() %>%
+  rownames_to_column() %>%
+  tbl_df() %>%
+  mutate(fin=paste0(round(`50%`,2)," (",round(`2.5%`,2),"; ",round(`97.5%`,2),")")) %>%
+  arrange(`50%`) %>%
+  select(rowname,fin)  %>%
+  write.table(., file = paste0(fig_path,"table2.txt"), sep = ",", quote = FALSE, row.names = F)
+
+
+
+
   iotas = rstan::extract(S_M6,"iota")[[1]]
   country_char
   

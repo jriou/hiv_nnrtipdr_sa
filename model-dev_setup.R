@@ -1,5 +1,5 @@
 # paths
-fig_path = "/home/julien/Dropbox/Unibe/hiv_res/nnrti_sa3/figures"
+fig_path = "manuscript/fig/"
 options("scipen"=100, "digits"=4)
 
 # libs
@@ -304,11 +304,12 @@ plot_indicators = function(samples=NULL,
     geom_line(aes(x=year,y=`50%`,colour=comp2),size=.6) +
     facet_grid(comp~Country.Name2,
                scales = "free_y",
-               labeller=labeller(comp=c("A_pred"="Prevalence (prop.)",
-                                        "B_pred"="ART (prop.)",
-                                        "C_pred"="Mortality (prop.)",
-                                        "D_pred"="Population (mil.)"))) +
+               labeller=labeller(comp=c("A_pred"="HIV prevalence",
+                                        "B_pred"="ART coverage",
+                                        "C_pred"="Mortality",
+                                        "D_pred"="Population"))) +
     scale_x_continuous(breaks=c(2000,2008,2016),labels=c("'00","'08","'16"),limits=c(1999,2018)) +
+    scale_y_continuous(labels=function(x) ifelse(x<=1,paste0(round(100*x),"%"),paste0(x,"m") )) +
     scale_fill_brewer(palette="Spectral",guide=FALSE) +
     scale_colour_brewer(palette="Spectral",guide=FALSE) +
     labs(x="Year",y=NULL) 
@@ -454,6 +455,77 @@ plot_pdr = function(sim.samples=NULL,
 }
 
 
+plot_pdr3 = function(sim.samples=NULL,
+                    samples=NULL,
+                    data.list,
+                    showprior=TRUE,
+                    ylim=NULL,
+                    key,
+                    outliers=NULL,
+                    ...) {
+  G = data.list$G
+  S = data.list$S
+  L = data.list$L
+  start = data.list$starting_year
+  comp=c("F_output")
+  comp2 = c("Pretreatment drug resistance")
+  if(dim(key)[[1]]==1) key$CountryID = 1
+  
+  if(!is.null(sim.samples)) {
+    pred = summary(sim.samples,pars=comp)[[1]] %>%
+      as.data.frame(.) %>%
+      rownames_to_column() %>%
+      tbl_df() %>%
+      mutate(year=start+rep(1:L,G),
+             CountryID=rep(1:G,each=L),
+             comp=rep(comp,each=G*L),
+             comp2=rep(comp2,each=G*L)) %>%
+      left_join(key)
+    cc = "gray30"
+  }
+  
+  if(!is.null(samples)) {
+    pred = summary(samples,pars=comp)[[1]] %>%
+      as.data.frame(.) %>%
+      rownames_to_column() %>%
+      tbl_df() %>%
+      mutate(year=start+rep(1:L,G),
+             CountryID=rep(1:G,each=L),
+             comp=rep(comp,each=G*L),
+             comp2=rep(comp2,each=G*L)) %>%
+      left_join(key)
+    cc = "purple"
+  }
+  
+  obs = data.frame(k=data.list$F_k,
+                   n=data.list$F_n,
+                   CountryID=data.list$F_country,
+                   year=data.list$F_t+start) %>%
+    tbl_df() %>% 
+    mutate(p=k/n,
+           pinf=qbeta(0.025, k, n-k+1),
+           psup=qbeta(0.975, k+1, n-k)) %>%
+    left_join(key) %>%
+    group_by(CountryID,year) %>%
+    mutate(rank=row_number(),
+           year2=year+(rank-1)*.2) %>%
+    ungroup() %>%
+    mutate(outlier=ifelse(row_number() %in% outliers,"Outlier",""))
+  g =
+    ggplot() +
+    geom_ribbon(data=pred,aes(x=year,ymin=`2.5%`,ymax=`97.5%`),fill=cc,alpha=.2) +
+    geom_pointrange(data=obs,aes(x=year2,y=p,ymin=pinf,ymax=psup,colour=outlier),size=.2,shape=21,fill="white",stroke=.7) +
+    facet_wrap(~Country.Name2,
+               ncol=3) +
+    scale_x_continuous(breaks=c(2002,2006,2010,2014,2018),labels=c("'02","'06","'10","'14","'18")) +
+    scale_y_continuous(labels=scales::percent) +
+    scale_colour_manual(values=c("grey30","tomato"),guide="none") +
+    labs(x="Year",y=comp2) 
+  g
+  if(!is.null(ylim)) g = g + coord_cartesian(ylim=c(0,ylim))
+  if(!is.null(samples)) g = g + geom_line(data=pred,aes(x=year,y=`50%`),alpha=.6,size=.4)
+  return(g)
+}
 
 plot_pdr2 = function(sim.samples=NULL,
                     samples=NULL,

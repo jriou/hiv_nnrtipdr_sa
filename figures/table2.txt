@@ -1,0 +1,10 @@
+rowname,fin
+External health expenditure (% of current health expenditure),-0.43 (-0.8; -0.08)
+Rural population (% of total population),-0.17 (-0.53; 0.2)
+Out-of-pocket expenditure (% of current health expenditure),0.03 (-0.42; 0.42)
+Unemployment, total (% of total labor force),0.2 (-0.17; 0.67)
+GNI per capita, Atlas method (current US$),0.27 (-0.08; 0.68)
+PMTCT (% prevalence),0.28 (-0.15; 0.63)
+Current health expenditure per capita, PPP (current international $),0.52 (0.13; 0.83)
+Hospital beds (per 1,000 people),0.65 (0.23; 0.88)
+Literacy rate, adult total (% of people ages 15 and above),0.67 (0.22; 0.9)
