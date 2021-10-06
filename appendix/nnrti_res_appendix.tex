@@ -7,7 +7,7 @@
 \usepackage{url}            % simple URL typesetting
 \usepackage{booktabs}       % professional-quality tables
 \usepackage{amsfonts}       % blackboard math symbols
-\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+%\usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
 \usepackage{lipsum}
 \usepackage{tikz}
@@ -30,7 +30,7 @@
 \newcommand{\colsurvey}[1]{\textcolor{orange2}{#1}}
 
 
-\title{{\sc Supplementary appendix to:} \\[.5em] Dynamics and drivers of HIV-1 drug resistance to non-nucleoside reverse-transcriptase inhibitors in southern Africa }
+\title{{\sc Additional file 1} \\[.5em] Dynamics and drivers of HIV-1 drug resistance to non-nucleoside reverse-transcriptase inhibitors in southern Africa }
 
 
 \author{Julien Riou, Carole Dupont, Silvia Bertagnolio, Ravindra K.~Gupta, Leigh F.~Johnson, Roger D.~Kouyos, Matthias Egger, Christian L.~Althaus}
@@ -50,7 +50,7 @@
 	\tableofcontents
 	\clearpage
 	
-	\section{Data}
+	\section{Additional data description}
 	\subsection{Systematic review of NNRTI PDR}
 	
 	
@@ -429,19 +429,20 @@
 	We selected weakly-informative priors distributions for all parameters (table \ref{table:priors2}).
 	We conducted prior predictive checks \cite{gabry2019visualization} to ensure that the chosen priors limited the range of explored parameter space to sensible values.
 	For this, we generated fake data from the prior distributions and checked that the resulting values were compatible with actual data, without constraining parameter inference to specific values.
-	The results are shown in figures \ref{fig:ppc1} \ref{fig:ppc2}.
+	The results are shown in figures \ref{fig:ppc1} and \ref{fig:ppc2}.
 	The large range of values generated from the prior distributions corresponds to the possibilities implied by our choice of priors.
 	This is an indication that our assumptions regarding the priors did not influence parameter inference, and that they can be qualified as ``weakly-informative''.
 	
-	\begin{sidewaysfigure}[h]
-		\includegraphics{../../figures/posterior_predictive_check_indicators.pdf}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.8\linewidth]{prior_predictive_check_indicators.png}
 		\caption{Prior predictive check for indicator data. Grey areas correspond to the 95\% central range of values generated from the prior distributions. Colored areas correspond to the model fit. Circles are data points.}
 		\label{fig:ppc1}
-	\end{sidewaysfigure}
+	\end{figure}
 	
 	\begin{figure}[h]
 		\centering
-		\includegraphics{../../figures/posterior_predictive_check_pdr.pdf}
+		\includegraphics[width=.9\linewidth]{prior_predictive_check_pdr.png}
 		\caption{Prior predictive check for NNRTI PDR data. Grey areas correspond to the 95\% central range of values generated from the prior distributions. Colored areas corresponds to the model fit. Circles are data points.}
 		\label{fig:ppc2}
 	\end{figure}
@@ -451,140 +452,11 @@
 	
 	The model was implemented in Stan 2.18.2 \cite{carpenter2017stan}.
 	The joint posterior distribution of the parameters was explored with the No-U-Turn Sampler (NUTS), a variant of Hamiltonian Monte Carlo \cite{hoffman2014no}.
-	The model code, as well as posterior samples and R scripts are available on \url{https://github.com/jriou/nnrtipdr_sa}.
-	
-	
-%	
-%	\section{Additional results}
-%	
-%	\subsection{Correlation between parameters}
-%	
-%	Figure \ref{fig:corpar} and table \ref{tab:cor} shows the posterior correlation between all included parameters and two model outputs: the cumulative number of ART initiators during 2000-2018 and the level of NNRTI PDR in 2018.
-%	This suggests that higher levels of NNRTI PDR in 2018 in a country are mainly associated with higher levels of cumulative number of ART initiators over the period (itself determined by the maximal treatment rate and the slope and timing of ART roll-out), with a higher rate of treatment failure with NNRTI resistance and with less AIDS-related mortality.
-%	
-%	\begin{table}[h]
-%		\centering
-%		\caption{Correlation matrix between the posterior samples of the 8 model parameters and two model outputs: the cumulative number of ART initiators during 2000-2018 and the level of NNRTI PDR in 2018.}
-%		\label{tab:cor}
-%		\begin{tabular}{|r|rrrrrrrrrr|}
-%			\hline
-%			& $\beta$ & $\tau$ & $\xi$ & $\nu$ & $\kappa$ & $\delta$ & $\omega$ & $c$ & $\iota$ & $r$ \\ 
-%			\hline
-%			Transmission rate ($\beta$) & 1.00 & -0.58 & -0.22 & -0.01 & 0.07 & -0.65 & 0.21 & -0.20 & -0.61 & -0.12 \\ 
-%			Maximal treatment rate ($\tau$) & -0.58 & 1.00 & -0.42 & 0.52 & -0.15 & 0.32 & -0.05 & 0.49 & 0.36 & 0.49 \\ 
-%			Slope of ART roll-out  ($\xi$)  & -0.22 & -0.42 & 1.00 & -0.69 & -0.00 & -0.03 & -0.09 & -0.04 & -0.04 & -0.07 \\ 
-%			Timing of ART roll-out ($\nu$) & -0.01 & 0.52 & -0.69 & 1.00 & -0.05 & 0.23 & 0.14 & -0.28 & 0.29 & 0.22 \\ 
-%			Switching rate ($\kappa$) & 0.07 & -0.15 & -0.00 & -0.05 & 1.00 & 0.06 & 0.14 & -0.13 & 0.03 & -0.25 \\ 
-%			Mortality rate ($\delta$) & -0.65 & 0.32 & -0.03 & 0.23 & 0.06 & 1.00 & -0.54 & -0.39 & 0.69 & -0.48 \\ 
-%			TFNR$^{\dagger}$ ($\omega$) & 0.21 & -0.05 & -0.09 & 0.14 & 0.14 & -0.54 & 1.00 & 0.11 & -0.28 & 0.51 \\ 
-%			Cumulative ART initiators ($c$) & -0.20 & 0.49 & -0.04 & -0.28 & -0.13 & -0.39 & 0.11 & 1.00 & -0.22 & 0.59 \\ 
-%			NNRTI PDR in 1999 ($\iota$)& -0.61 & 0.36 & -0.04 & 0.29 & 0.03 & 0.69 & -0.28 & -0.22 & 1.00 & -0.15 \\ 
-%			NNRTI PDR in 2018 ($r$) & -0.12 & 0.49 & -0.07 & 0.22 & -0.25 & -0.48 & 0.51 & 0.59 & -0.15 & 1.00 \\ 
-%			\hline
-%			\multicolumn{9}{l}{$^{\dagger}$rate of treatment failure with NNRTI resistance}
-%		\end{tabular}
-%	\end{table}
-%	
-%	\begin{figure}[h]
-%		\centering
-%		\includegraphics[width=\linewidth]{../../figures/plot_cor_pars.png}
-%		\caption{Scatter plot of all posterior samples of the model parameter. A full size version of the plot is available on \url{https://github.com/jriou/nnrti_sa/figures/plot_cor_pars.png}.}
-%		\label{fig:corpar}
-%	\end{figure}
-%	
-%	\subsection{Exploratory analysis of the country-level drivers of NNRTI resistance}
-%	
-%	Figure \ref{fig:corcovariates} shows the scatter plots corresponding to the exploratory analysis 
-%	
-%	\begin{figure}[h]
-%		\centering
-%		\includegraphics[width=.7\linewidth]{../../figures/cor_covariates.pdf}
-%		\caption{Scatter plot of the rate of treatment failure due to NNRTI resistance (y-axis, median and 95\% credible interval) with 8 country-level covariates (PMTCT is protection of mother-to-child transmission). Note that the correlation coefficients shown in Table 2 of the main paper are not driven by the result in RSA (South Africa) because it is computed using rank-based methods (Spearman's rank correlation).}
-%		\label{fig:corcovariates}
-%	\end{figure}
-%	
-	%
-	%
-	%\begin{itemize}
-	%	\item \textbf{HIV-1 transmission}.
-	%	The force of infection of drug-sensitive and drug-resistant HIV-1 strains depends on the transmission rate $\beta$. We assumed that only individuals without treatment (compartments $I$ and $J$) or who fail first-line treatment (compartment $U$) can transmit HIV-1,\cite{supervie2014heterosexual} and that there is no fitness cost associated with the transmission of drug-resistant strains.\cite{little2008persistence}
-	%	
-	%	\item \textbf{First-line NNRTI-based ART}.
-	%	Untreated individuals initiate first-line ART at a time-dependent rate $\tau f(t,\xi,\nu)$, where the maximal treatment rate $\tau$ is scaled by a sigmoid function $f(t,\xi,\nu)$ to reflect the progressive roll-out of ART. This function 
-	%	
-	%	\item \textbf{\emph{De novo} NNRTI resistance emergence}. 
-	%	HIV-1 infected patients on first-line ART can acquire \emph{de novo} NNRTI resistance at rate $\omega$ (DNR).
-	%	
-	%	\item \textbf{Second-line NNRTI-free ART}. 
-	%	Individuals who fail first-line ART due to NNRTI resistance may be switched to second-line NNRTI-free ART regimens at rate $\kappa$.
-	%	
-	%	\item \textbf{Demography}.
-	%	Susceptible adults enter the population at rate $\eta$. All individuals can die from background mortality at rate $\mu$ which we set to the inverse of the life expectancy in adults in each country. HIV-1 infected individuals without treatment (compartments $I$ and $J$) or who fail first-line ART (compartment $U$) die from AIDS-related mortality at rate $\delta$.
-	%\end{itemize}
-	%
-	%
-	%\begin{itemize}
-	%	\item \textit{HIV-1 transmission}.
-	%	The force of infection of NNRTI-sensitive and NNRTI-resistant strains of HIV-1 depends on a transmission rate $\beta$. We assume that individuals under adapted ART (compartments $T$ and $V$) are virologically suppressed and thus not infectious, and that there is not fitness cost associated with the transmission of resistant strains.
-	%	\item \textit{Treatment}.
-	%	Untreated individuals ($I$ and $J$) initiate ART at a time-dependent treatment rate $\tau (t)$ which is modelled using a sigmoid function to reflect the roll-out of ART (controlled by a slope $\xi$ and a shift $\nu$, see appendix).
-	%	\item \textit{Occurrence of NNRTI resistance}. 
-	%	Individuals on ART that are infected with an NNRTI-sensitive strain ($T$) may acquire resistance to NNRTI at rate $\omega$. $\omega$ is thus a compound parameter including factors such as poor ART adherence, low patient retention, quality of ART service delivery, and unreliable supply chains.
-	%	\item \textit{Demography}.
-	%	New susceptible individuals enter the population at rate $\eta$. Untreated HIV-infected individuals ($I$ and $J$) die of AIDS at rate $\delta$. We ignored background mortality as it has limited effects during the short time period studied.
-	%\end{itemize}
-	%The starting date was set as 2000, at which point the initial conditions of population and HIV prevalence were directly informed by data. The initial proportion of resistance was controlled by a parameter $\iota$ and estimated from data.
-	%In relation to this model, PDR, i.e. the proportion of resistance among ART initiators, was defined as the ratio of the flux $J \rightarrow U$ over the sum of the fluxes $J \rightarrow U$ and $I \rightarrow T$.
-	%
-	%\begin{table}[h]
-	%	\centering
-	%	\caption{Parameters of the HIV transmission model.}
-	%	\label{table:priors}
-	%	\begin{tabular}{lp{9.5cm}p{2.9cm}l}
-	%		\hline \\[-.8em]
-	%		Parameter & Interpretation & Prior & Unit \\
-	%		\hline \\[-.7em]
-	%		\multicolumn{4}{l}{{\em Related to local HIV dynamics ($\theta_{1,j}$)}} \\[.2em]
-	%		\hspace{.8em}$\beta_j$ & Transmission rate & $\text{Expon}(5)$ & y$^{-1}$\\ 
-	%		\hspace{.8em}$\tau_j$ & Maximum treatment rate & $\text{Expon}(5)$ & y$^{-1}$ \\ 
-	%		\hspace{.8em}$\nu_j$ & Time until the treatment rate reaches 50\% of maximum & $\text{Expon}(0.5)$& y  \\ 
-	%		\hspace{.8em}$\xi_j$ & Slope of logistic treatment rate & $\text{Beta}(2,2)+0.5$ & -\\ 
-	%		\hspace{.8em}$\delta_j$ & AIDS-related mortality rate &$\text{Expon}(10)$& y$^{-1}$ \\ 
-	%		\hspace{.8em}$\eta_j$ & Adult population growth rate & $\text{Expon}(10)$ & y$^{-1}$\\ 
-	%		\hspace{.8em}$\sigma^a_j,\cdots,\sigma^d_j$ & Scales for normal distributions & $\text{Expon}(0.1)$& -\\[.2em] 
-	%		\hline \\[-.7em]
-	%		\multicolumn{4}{l}{{\em Related to NNRTI resistance ($\theta_{2,j}$)}} \\[.2em]
-	%		\hspace{.8em}$\omega_j$ & Rate of resistance occurrence during treatment & $\text{lognormal}(\mu_{\omega},\sigma_{\omega})$ & y$^{-1}$\\ 
-	%		\hspace{.8em}$\iota_j$ & Initial proportion of NNRTI resistance in 2000 & $\text{inv.logit}\left(\mathcal{N}(\mu_{\iota},\sigma_{\iota})\right)$ & y$^{-1}$\\ [.2em]
-	%		\hspace{.8em}$\mu_{\omega}$ & Location hyperparameter for the distribution of $\omega_j$ across countries & $\text{Expon}(10)$ & y$^{-1}$\\ 
-	%		\hspace{.8em}$\sigma_{\omega}$ &  Scale hyperparameter for the distribution of  $\omega_j$ across countries & $\text{Expon}(10)$ & y$^{-1}$\\ 
-	%		\hspace{.8em}$\mu_{\iota}$ & Location hyperparameter for the distribution of $\iota_j$ across countries & $\text{logit}\left(\text{Beta}(1,99)\right)$ & y$^{-1}$\\ 
-	%		\hspace{.8em}$\sigma_{\iota}$ &  Scale hyperparameter for the distribution of  $\iota_j$ across countries & $\text{Expon}(10)$ & y$^{-1}$\\
-	%		\hspace{.8em}$\sigma_{e,j}$ & Scale of the study-specific random effect & $\text{Expon}(10)$ & - \\ 
-	%		\hline 
-	%	\end{tabular} 
-	%\end{table}
-	%
-	%\subsubsection{Hierarchical structure}
-	%
-	%To describe the spread of NNRTI resistance in all countries, we considered 9 parallel and hierarchically-structured ODE models. For each country $j$, we assumed the parameters related to the natural history of HIV $\theta_{1,j}$ to be independent across countries. We imposed a hierarchical structure by country on the parameters related to NNRTI resistance $\theta_{2,j}$:
-	%\begin{align}
-	%\begin{split}
-	%&\omega_j \sim \text{lognormal}(\mu_{\omega},\sigma_{\omega}) \\
-	%&\log\frac{\iota_j}{1-\iota_j} \sim \mathcal{N}(\mu_{\iota},\sigma_{\iota})
-	%\end{split}
-	%\end{align}
-	%where $\{\mu_{\omega},\sigma_{\omega},\mu_{\iota},\sigma_{\iota}\}$ are hyper-parameters governing the between-country distribution of the random effects $\omega_j$ and $\iota_j$.
-	%
-	%\subsubsection{Statistical inference}
-	%
-	%We jointly fitted the output of the HIV transmission model to the corresponding data. For computational reasons, we split the inference procedure into two steps (appendix B). We implemented the complete Bayesian modelling framework in Stan 2.18.2 \cite{carpenter2017stan}. We selected weakly-informative prior distributions for all parameters. We conducted prior predictive checks \cite{gabry2019visualization} to ensure that the chosen priors limited the range of explored parameter space to sensible values. We explored the joint posterior distribution of the parameters using the No-U-Turn Sampler (NUTS), a variant of Hamiltonian Monte Carlo \cite{hoffman2014no}. All data and R/Stan code files are available from GitHub (\url{https://github.com/jriou/nnrti_sa}).
-	%
+	The model code, as well as posterior samples and R scripts are available on \url{https://github.com/jriou/hiv_nnrtipdr_sa}.
 	
 	
 	
-	
-	\bibliography{../manuscript/nnrti_res}
+	\bibliography{nnrti_res}
 	\bibliographystyle{unsrt}  
 	
 	
